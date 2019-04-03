@@ -8,6 +8,7 @@ var exec = require('child_process').exec
 var istanbul = require('gulp-istanbul')
 var mocha = require('gulp-mocha')
 var coveralls = require('gulp-coveralls')
+const path = require("path");
 
 // 
 gulp.task('hello', function() {
@@ -58,10 +59,10 @@ gulp.task("webpack", function( /*callback*/ ) {
     webpack({
         entry: './src/mock.js',
         output: {
-            path: './dist',
+            path: path.resolve('./dist'),
             filename: 'mock.js',
             library: 'Mock',
-            libraryTarget: 'umd'
+            // libraryTarget: 'umd'
         }
     }, function(err /*, stats*/ ) {
         // console.log(err, stats)
@@ -71,7 +72,7 @@ gulp.task("webpack", function( /*callback*/ ) {
         entry: './src/mock.js',
         devtool: 'source-map',
         output: {
-            path: './dist',
+            path: path.resolve('./dist'),
             filename: 'mock-min.js',
             library: 'Mock',
             libraryTarget: 'umd'

@@ -62,6 +62,7 @@ Mock.mock = function(rurl, rtype, template) {
         template: template
     }
     return Mock
-}
+};
 
 module.exports = Mock
+// export default Mock;
