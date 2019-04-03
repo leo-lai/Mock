@@ -299,13 +299,10 @@ Util.extend(MockXMLHttpRequest.prototype, {
                 }
             }
 
-            function _resolve(){
+            function _resolve(resp){
 
                 // fix #92 #93 by @qddegtya
-                that.response = that.responseText = JSON.stringify(
-                    convert(that.custom.template, that.custom.options),
-                    null, 4
-                )
+                that.response = that.responseText = JSON.stringify(resp, null, 4);
 
                 that.readyState = MockXMLHttpRequest.DONE
                 that.dispatchEvent(new Event('readystatechange' /*, false, false, that*/ ))

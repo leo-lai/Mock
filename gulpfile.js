@@ -62,7 +62,7 @@ gulp.task("webpack", function( /*callback*/ ) {
             path: path.resolve('./dist'),
             filename: 'mock.js',
             library: 'Mock',
-            // libraryTarget: 'umd'
+            libraryTarget: 'umd'
         }
     }, function(err /*, stats*/ ) {
         // console.log(err, stats)

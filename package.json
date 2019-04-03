@@ -2,7 +2,7 @@
   "name": "mockjs-async",
   "title": "Mock.js async版本",
   "description": "mockjs支持异步模拟的版本",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "homepage": "https://github.com/ccwq/Mock",
   "keywords": [
     "mock",
@@ -30,7 +30,7 @@
     "type": "git",
     "url": "git://github.com/ccwq/Mock.git"
   },
-  "main": "./index.js",
+  "main": "dist/mock.js",
   "scripts": {
     "test": "gulp mocha",
     "build": "gulp webpack",
