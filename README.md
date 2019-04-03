@@ -5,6 +5,9 @@
 安装:
 ```bash
 yarn add -D mockjs-async 
+```
+or
+```bash
 npm install --save mockjs-async
 ```
 
