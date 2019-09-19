@@ -287,20 +287,16 @@ Util.extend(MockXMLHttpRequest.prototype, {
 
             that.status = 200
             that.statusText = HTTP_STATUS_CODES[200]
-
+            
+            // 使Mock.mock方法支持Promise异步数据返回
             var resp = convert(that.custom.template, that.custom.options);
-            if (resp) {
-                if(resp.then){
-                    resp.then(function(resp){
-                        _resolve(resp);
-                    })
-                }else{
-                    _resolve(resp)
-                }
+            if(resp && resp.then){
+                resp.then(_resolve)
+            }else{
+                _resolve(resp)
             }
 
             function _resolve(resp){
-
                 // fix #92 #93 by @qddegtya
                 that.response = that.responseText = JSON.stringify(resp, null, 4);
 
@@ -309,11 +305,6 @@ Util.extend(MockXMLHttpRequest.prototype, {
                 that.dispatchEvent(new Event('load' /*, false, false, that*/ ));
                 that.dispatchEvent(new Event('loadend' /*, false, false, that*/ ));
             }
-
-
-
-
-
         }
     },
     // https://xhr.spec.whatwg.org/#the-abort()-method
